@@ -1,0 +1,80 @@
+@import 'primeicons/primeicons.css';
+:root {
+  /* Color styles */
+  --main---red: rgba(227, 100, 110, 1);
+  --main---purple: rgba(187, 114, 233, 1);
+  --main---blue: rgba(57, 150, 219, 1);
+  --main---green: rgba(130, 188, 79, 1);
+  --main---yellow: rgba(234, 189, 95, 1);
+  --base--gray-100: rgba(13, 14, 17, 1);
+  --base--gray-200: rgba(22, 24, 29, 1);
+  --base--gray-300: rgba(41, 44, 52, 1);
+  --base--gray-400: rgba(135, 142, 161, 1);
+  --base--gray-500: rgba(192, 196, 206, 1);
+  --base--gray-600: rgba(226, 228, 233, 1);
+
+  /* Text-size styles */
+  --title--lg: 56px;
+  --title--md: 24px;
+  --title--sm: 16px;
+  --subtitle: 20px;
+  --text--md: 16px;
+  --text--sm: 14px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  font-weight: normal;
+  user-select: none;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--base--gray-100) !important;
+  transition:
+    color 0.5s,
+    background-color 0.5s;
+  line-height: 1.6;
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Fira Sans',
+    'Maven Pro',
+    'Droid Sans',
+    'Helvetica Neue',
+    sans-serif;
+  font-size: 15px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.col {
+  flex-direction: column !important;
+}
+.row {
+  flex-direction: row !important;
+}
+.flex {
+  display: flex !important;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+.center {
+  justify-content: center;
+}
+
+a {
+  text-decoration: none !important;
+}

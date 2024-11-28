@@ -51,6 +51,21 @@
           <p>Lista de tarefas</p>
         </div>
       </a>
+
+      <a href="https://locadora.geniussolucoes.com.br/" target="_blank">
+        <div class="card">
+          <img loading="lazy" src="../assets/img.jpg" height="110" alt="" />
+          <span>ABC Locadora</span>
+          <p>Site ocadora de veiculos</p>
+        </div>
+      </a>
+      <a href="https://vagas.geniussolucoes.com.br/" target="_blank">
+        <div class="card">
+          <img loading="lazy" src="../assets/Screenshot.png" height="110" alt="" />
+          <span>Vagas</span>
+          <p>Portal de vagas</p>
+        </div>
+      </a>
     </div>
   </div>
 </template>

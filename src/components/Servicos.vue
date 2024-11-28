@@ -6,15 +6,21 @@
 
     <div class="itens">
       <div class="card">
-        <img src="https://cdn-icons-png.flaticon.com/512/4703/4703650.png" alt="" />
-        <span>Websites e Aplicativos</span>
-        <p>Desenvolvimento de interfaces</p>
+        <img src="https://cdn-icons-png.flaticon.com/512/2037/2037099.png" alt="" />
+        <span>Desenvolvimento Web</span>
+        <p>Criação de sites e sistemas personalizados, responsivos e com alto desempenho.</p>
       </div>
 
       <div class="card">
-        <img src="https://cdn-icons-png.flaticon.com/512/9850/9850774.png" alt="" />
-        <span>API e banco de dados</span>
-        <p>Criação de serviços do sistema</p>
+        <img src="https://cdn-icons-png.flaticon.com/512/1875/1875043.png" alt="" />
+        <span>Desenvolvimento de Aplicativos</span>
+        <p>Aplicativos mobile nativos e híbridos para iOS e Android.</p>
+      </div>
+
+      <div class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/2641/2641211.png" alt="" />
+        <span>E-commerce e Plataformas</span>
+        <p>Desenvolvimento de lojas virtuais e marketplaces para impulsionar negócios online.</p>
       </div>
     </div>
   </div>

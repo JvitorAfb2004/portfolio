@@ -2,9 +2,8 @@
 <template>
   <header class="header">
     <div class="overlay">
+      <img src="../assets/perfil.png" class="imgPerfil" alt="" />
 
-        <img src="../assets/perfil.png" class="imgPerfil" alt="" />
-     
       <h1>Hello World! Meu Nome é <span>João Vítor</span> e sou</h1>
       <p>Desenvolvedor Front-End</p>
 
@@ -39,13 +38,6 @@
           VueJs
         </div>
       </div>
-      <a href="#servicos">
-        <img
-          class="arrow"
-          src="https://icons.veryicon.com/png/o/miscellaneous/arrows/double-arrow-down-2.png"
-          alt=""
-        />
-      </a>
     </div>
   </header>
 </template>

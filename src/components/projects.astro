@@ -1,0 +1,154 @@
+---
+import { Image } from "astro:assets";
+
+interface Project {
+  title: string;
+  image: string;
+  preview: string;
+  status: string;
+}
+const projects: Project[] = [
+  {
+    title: "Bricoin",
+    image: "https://dummyimage.com/400x400?text=Bricoin",
+    preview: "https://bricoin.com.br",
+    status: "Sistema completo de investimento integrado com gateway de pagamento",
+  },
+  {
+    title: "CarroDigital",
+    image: "https://dummyimage.com/400x400?text=CarroDigital",
+    preview: "https://app.carrodigital.com.br",
+    status: "Loja virtual e tambem integração para consultas veiculares",
+  },
+  {
+    title: "ViaPet Marketplace",
+    image: "https://dummyimage.com/400x400?text=ViaPet Marketplace",
+    preview: "https://viapet.shop",
+    status: "Marketplace para venda de produtos e serviços para pets",
+  },
+  {
+    title: "ViaPet SaaS",
+    image: "https://dummyimage.com/400x400?text=ViaPet SaaS",
+    preview: "https://viapet.app",
+    status: "Gerenciamento de serviços de petshop",
+  },
+  {
+    title: "AcheiCasa.net",
+    image: "https://dummyimage.com/400x400?text=AcheiCasa.net",
+    preview: "https://acheicasa.net",
+    status: "Busca de imóveis",
+  },
+  {
+    title: "GYMSOFTWARE",
+    image: "https://dummyimage.com/1080x1080?text=GymSoftware",
+    preview: "",
+    status: "Gestão de academias integrado com a catraca",
+  },
+  {
+    title: "BotYT",
+    image: "https://dummyimage.com/400x400?text=BotYT",
+    preview: "",
+    status: "Bot para publicação automatica com interface e multiplos canais",
+  },
+  {
+    title: "CoPlanner",
+    image: "https://dummyimage.com/400x400?text=CoPlanner",
+    preview: "",
+    status: "Controle de vendas e estoque",
+  },
+];
+---
+
+<section
+  id="projects"
+  class="py-12 border-t border-[#ffffff10] text-[var(--white)]"
+>
+  <div class="max-w-5xl mx-auto">
+    <h2 class="text-lg text-[var(--sec)] mb-2 shiny-sec">Um pouco do que já fiz</h2>
+    <h3 class="text-4xl md:text-5xl font-medium mb-8">Projetos</h3>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {
+        projects.map((project) => (
+          <div class="group">
+            <a
+              href={project.preview}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block"
+            >
+              <div class="rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 mb-4">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  class="w-full h-48 md:h-72 object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+              <div class="flex items-center px-3">
+                <div class="flex-grow">
+                  <h4 class="text-2xl font-semibold">{project.title}</h4>
+                  <span class="py-1 text-sm text-[var(--white-icon)]">
+                    {project.status}
+                  </span>
+                </div>
+                <div class="flex gap-2 ml-auto">
+                
+                  <a
+                    
+                    target="_blank"
+                    href={project.preview}
+                    aria-label="Preview"
+                    class="size-14 flex justify-center items-center text-[var(--white-icon)] hover:text-white transition duration-300 ease-in-out border border-1 border-[var(--white-icon-tr)] p-3 rounded-xl bg-[#1414149c] hover:bg-[var(--white-icon-tr)]"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      class="size-7"
+                    >
+                      <path d="M16.0037 9.41421L7.39712 18.0208L5.98291 16.6066L14.5895 8H7.00373V6H18.0037V17H16.0037V9.41421Z" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </a>
+          </div>
+        ))
+      }
+    </div>
+   
+  </div>
+</section>
+
+<style>
+  #projects {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    will-change: opacity, transform; /* Otimização */
+  }
+
+  #projects.animate-fade-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
+<script>
+  const section = document.querySelector('#projects');
+
+  if (section) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          section.classList.add('animate-fade-in');
+          observer.unobserve(entry.target); // Anima apenas uma vez
+        }
+      });
+    }, {
+      threshold: 0.1 // Trigger quando 10% da seção estiver visível
+    });
+
+    observer.observe(section);
+  }
+</script>

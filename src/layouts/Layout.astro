@@ -44,7 +44,61 @@ const { title } = Astro.props;
   </head>
   <body class="bg-[--background] md:px-48 lg:px-20 px-9">
     <slot />
+    <div id="projectModal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 hidden">
+      <div class="bg-[#1a1a1a] rounded-lg shadow-xl p-6 m-4 max-w-lg w-full border border-[#ffffff10]">
+        <div class="flex justify-between items-center mb-4">
+          <h4 id="modalTitle" class="text-2xl font-semibold text-[var(--white)]"></h4>
+          <button onclick="closeModal()" class="text-[var(--white-icon)] hover:text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        <div id="modalDetails" class="text-[var(--white-icon)] text-sm">
+        </div>
+      </div>
+    </div>
   </body>
+  <script>
+    const modal = document.querySelector('#projectModal') as HTMLElement | null;
+    const modalTitle = document.querySelector('#modalTitle') as HTMLElement | null;
+    const modalDetails = document.querySelector('#modalDetails') as HTMLElement | null;
+
+    function openModal(buttonElement: HTMLElement) {
+      const title = buttonElement.getAttribute('data-project-title');
+      const details = buttonElement.getAttribute('data-project-details');
+
+      if (modalTitle && modalDetails) {
+        modalTitle.textContent = title;
+        modalDetails.textContent = details;
+      }
+
+      if (modal) {
+        modal.classList.remove('hidden');
+        modal.style.display = 'flex';
+
+        modal.addEventListener('click', handleModalClick);
+      }
+    }
+
+    function closeModal() {
+      if (modal) {
+        modal.classList.add('hidden');
+        modal.style.display = 'none';
+
+        modal.removeEventListener('click', handleModalClick);
+      }
+    }
+
+    function handleModalClick(event: MouseEvent) {
+      if (modal && event.target === modal) {
+        closeModal();
+      }
+    }
+
+    (window as any).openModal = openModal;
+    (window as any).closeModal = closeModal;
+  </script>
 </html>
 
 <style is:global>
@@ -96,5 +150,9 @@ const { title } = Astro.props;
   * {
     scrollbar-width: thin;
     scrollbar-color: var(--line) var(--container);
+  }
+
+  #projectModal {
+    display: none;
   }
 </style>

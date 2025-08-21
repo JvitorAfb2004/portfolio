@@ -39,7 +39,7 @@ const SkillsList = () => {
   const skills = {
     "Web": [
       "Single Page Applications (SPAs)",
-      "Landing pages e sites institucionais otimizados para SEO",
+      "Sites institucionais otimizados para SEO",
       "Sistemas web para delivery, gestão, investimentos ou SaaS",
       "Dashboards administrativos com relatórios e gráficos",
       "Integração com APIs REST, WebSocket e gateways de pagamento"
@@ -50,14 +50,15 @@ const SkillsList = () => {
       "Apps híbridos desenvolvidos com FlutterFlow",
       "Prototipagem de fluxos mobile interativos"
     ],
-    "APIs e Backend": [ // Nova categoria
-      "APIs RESTful escaláveis com Node.Js",
-      "Sistemas de autenticação segura com JWT ou OAuth",
-      "Integração com bancos de dados SQL e NoSQL (MySQL, MongoDB)",
+    "APIs e Backend": [
+      "APIs RESTful escaláveis com Node.js e TypeScript",
+      "Sistemas de autenticação segura com JWT, OAuth e Google OAuth",
+      "Integração com bancos de dados SQL e NoSQL (MySQL, PostgreSQL, MongoDB)",
+      "Cache e sessões com Redis para alta performance",
+      "Containerização e orquestração com Docker",
       "Webhooks para automação e comunicação entre sistemas",
       "Microsserviços para aplicações modulares"
     ],
-  
   };
   
   const toggleItem = (item: string) => {

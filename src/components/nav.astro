@@ -80,6 +80,14 @@ const navItems: NavItem[] = [
   }
 
   @media (max-width: 767px) {
+    nav a.active {
+      color: var(--sec) !important;
+      transform: scale(1.1);
+      transition: all 0.3s ease;
+    }
+  }
+
+  @media (max-width: 767px) {
     nav {
       width: 100% !important;
       transform: translateX(-50%);
@@ -88,6 +96,8 @@ const navItems: NavItem[] = [
       position: fixed;
       border-radius: 1rem 1rem 0 0;
       border-color: #ffffff10;
+      z-index: 1000;
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
     }
 
     nav.scrolling {
@@ -96,7 +106,7 @@ const navItems: NavItem[] = [
     }
 
     body {
-      padding-bottom: 70px;
+      padding-bottom: 80px;
     }
   }
 </style>
@@ -143,10 +153,16 @@ const navItems: NavItem[] = [
       const target = e.currentTarget as HTMLAnchorElement;
       const targetId = target.getAttribute("href")?.substring(1) || "";
       const targetElement = document.getElementById(targetId);
+      
+      console.log('Navegação clicada:', targetId, 'Elemento encontrado:', !!targetElement);
+      
       if (targetElement) {
         targetElement.scrollIntoView({
           behavior: "smooth",
+          block: "start"
         });
+      } else {
+        console.warn('Seção não encontrada:', targetId);
       }
     });
   });
@@ -154,7 +170,13 @@ const navItems: NavItem[] = [
   document.addEventListener("DOMContentLoaded", () => {
     const sections = document.querySelectorAll("section[id]");
     const navLinks = document.querySelectorAll("nav a[href^='#']");
-    const observerOptions = { threshold: 0.6 };
+    const observerOptions = { 
+      threshold: 0.3,
+      rootMargin: "-20% 0px -20% 0px"
+    };
+
+    console.log('Seções encontradas:', sections.length);
+    sections.forEach(section => console.log('Seção:', section.id));
 
     const observerCallback = (entries) => {
       entries.forEach((entry) => {
@@ -164,6 +186,7 @@ const navItems: NavItem[] = [
           const activeLink = document.querySelector(`nav a[href="#${id}"]`);
           if (activeLink) {
             activeLink.classList.add("active");
+            console.log('Seção ativa:', id);
           }
         }
       });
@@ -178,13 +201,15 @@ const navItems: NavItem[] = [
 </script>
 
 <style>
-  @media (max-width: 767px) {
-    body {
-      padding-bottom: 70px;
-    }
-  }
-
   nav a.active {
     color: white !important;
+  }
+
+  @media (max-width: 767px) {
+    nav a.active {
+      color: var(--sec) !important;
+      transform: scale(1.1);
+      transition: all 0.3s ease;
+    }
   }
 </style>

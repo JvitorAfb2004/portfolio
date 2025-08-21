@@ -1,20 +1,25 @@
 ---
-import Layout from "@/layouts/Layout.astro";
-import Nav from "@/components/nav.astro";
-import Home from "@/components/home.astro";
-import Projects from "@/components/projects.astro";
-import EducationCertifications from "@/components/EducationCertifications.astro";
-import Skills from "@/components/skills.astro";
-import Contact from "@/components/contact.astro";
-import Footer from "@/components/footer.astro";
+import Layout from "../layouts/Layout.astro";
+import Nav from "../components/nav.astro";
+import Home from "../components/home.astro";
+import Skills from "../components/skills.astro";
+import Projects from "../components/projects.astro";
+import EducationCertifications from "../components/EducationCertifications.astro";
+import Contact from "../components/contact.astro";
+import Footer from "../components/footer.astro";
+
+const title = "João Vitor - Desenvolvedor Full-Stack | Node.js, React, Vue.js";
+const description = "Portfolio de João Vitor, desenvolvedor Full-Stack especializado em Node.js, React, Vue.js, TypeScript e desenvolvimento mobile. Criação de sistemas web, APIs RESTful e aplicações escaláveis.";
 ---
 
-<Layout title="Dev João Vitor">
+<Layout title={title} description={description}>
   <Nav />
-  <Home />
-  <Projects />
-  <Skills />
-  <EducationCertifications />
-  <Contact />
+  <main>
+    <Home />
+    <Skills />
+    <Projects />
+    <EducationCertifications />
+    <Contact />
+  </main>
   <Footer />
 </Layout>

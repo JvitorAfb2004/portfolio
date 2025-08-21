@@ -113,6 +113,43 @@ import SkillsList from "../React/SkillsList.tsx";
   </div>
 </section>
 
+<!-- Dados estruturados para SEO -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "João Vitor",
+  "jobTitle": "Desenvolvedor Full-Stack",
+  "description": "Desenvolvedor Full-Stack especializado em Node.js, React, Vue.js e desenvolvimento mobile",
+  "url": "https://jvitor.tech",
+  "image": "https://jvitor.tech/og.image.png",
+  "sameAs": [
+    "https://github.com/JvitorAfb2004",
+    "https://linkedin.com/in/jvitorafb"
+  ],
+  "knowsAbout": [
+    "Node.js",
+    "React",
+    "Vue.js",
+    "TypeScript",
+    "JavaScript",
+    "Mobile Development",
+    "Web Development",
+    "API Development",
+    "PostgreSQL",
+    "MySQL",
+    "Redis",
+    "Docker"
+  ],
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Freelancer"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "BR"
+  }
+})} />
+
 <style>
   #home {
     opacity: 0;

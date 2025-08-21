@@ -1,27 +1,75 @@
 ---
 interface Props {
   title: string;
+  description?: string;
+  image?: string;
+  canonicalURL?: string;
 }
 
-const { title } = Astro.props;
+const { 
+  title, 
+  description = "João Vitor - Desenvolvedor Full-Stack especializado em Node.js, React, Vue.js e desenvolvimento mobile. Criação de sistemas web, APIs RESTful, aplicativos mobile e soluções SaaS escaláveis.",
+  image = "/og.image.png",
+  canonicalURL = Astro.url.href
+} = Astro.props;
+
+const siteName = "João Vitor - Portfolio";
+const siteUrl = "https://jvitor.tech";
 ---
 
 <!doctype html>
-<html lang="pt-br">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Software Developer" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="keywords" content="desenvolvedor full-stack, node.js, react, vue.js, typescript, desenvolvimento web, aplicações mobile, APIs REST, desenvolvimento de software, programador, frontend, backend" />
+    <meta name="author" content="João Vitor" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="pt-BR" />
+    <meta name="revisit-after" content="7 days" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href={canonicalURL} />
+    
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="/favicon.png" />
-    <meta property="og:title" content="João Vitor" />
-    <meta property="og:description" content="Software Developer" />
-    <meta property="og:image" content="https://jvitor.tech/og.image.png" />
-    <meta property="og:url" content="https://jvitor.tech" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
+    
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="João Vitor Portfolio" />
-
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(image, siteUrl)} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:locale" content="pt_BR" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={new URL(image, siteUrl)} />
+    
+    <!-- Additional Meta Tags -->
+    <meta name="theme-color" content="#a476ff" />
+    <meta name="msapplication-TileColor" content="#a476ff" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    
+    <!-- Preconnect for Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    
+    <!-- Fonts with Performance Optimization -->
     <link
       rel="preload"
       as="style"
@@ -39,7 +87,50 @@ const { title } = Astro.props;
         href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
       />
     </noscript>
-
+    
+    <!-- Structured Data / Schema.org -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "João Vitor",
+      "jobTitle": "Desenvolvedor Full-Stack",
+      "description": "Desenvolvedor Full-Stack especializado em Node.js, React, Vue.js e desenvolvimento mobile",
+      "url": siteUrl,
+      "image": new URL(image, siteUrl),
+      "sameAs": [
+        "https://github.com/JvitorAfb2004",
+        "https://linkedin.com/in/jvitorafb"
+      ],
+      "knowsAbout": [
+        "Node.js",
+        "React",
+        "Vue.js",
+        "TypeScript",
+        "JavaScript",
+        "Mobile Development",
+        "Web Development",
+        "API Development",
+        "PostgreSQL",
+        "MySQL",
+        "Redis",
+        "Docker"
+      ],
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Freelancer"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "BR"
+      }
+    })} />
+    
+    <!-- Performance and Security -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="X-Frame-Options" content="DENY" />
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+    
     <title>{title}</title>
   </head>
   <body class="bg-[--background] md:px-48 lg:px-20 px-9">
@@ -108,6 +199,7 @@ const { title } = Astro.props;
     --white: #dfdfdf;
     --white-icon: #f3f3f398;
     --white-icon-tr: #f3f3f310;
+    --component-bg: #1a1a1a;
   }
 
   * {
@@ -119,6 +211,16 @@ const { title } = Astro.props;
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+  }
+
+  body {
+    padding-bottom: 80px;
+  }
+
+  @media (min-width: 768px) {
+    body {
+      padding-bottom: 0;
+    }
   }
 
   *::selection {

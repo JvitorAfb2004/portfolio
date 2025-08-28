@@ -4,11 +4,6 @@
   "framework": "astro",
   "installCommand": "npm install",
   "devCommand": "npm run dev",
-  "functions": {
-    "src/pages/**/*.astro": {
-      "maxDuration": 10
-    }
-  },
   "headers": [
     {
       "source": "/(.*)",
@@ -43,15 +38,6 @@
           "value": "public, max-age=31536000, immutable"
         }
       ]
-    },
-    {
-      "source": ""<
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        }
-      ]
     }
   ],
   "redirects": [
@@ -62,4 +48,3 @@
     }
   ]
 }
-

@@ -1,0 +1,226 @@
+---
+// Componente de depoimentos dos clientes
+---
+
+<section class="text-[var(--white)] py-20 relative overflow-hidden" id="testimonials">
+  <!-- Background com gradiente animado -->
+  <div class="absolute inset-0 bg-gradient-to-br from-[#0a0a0a] via-[#1a1a1a] to-[#0f0f0f]"></div>
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(164,118,255,0.1)_0%,transparent_50%)]"></div>
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(164,118,255,0.05)_0%,transparent_50%)]"></div>
+  
+  <!-- Elementos decorativos flutuantes -->
+  <div class="absolute top-20 left-10 w-2 h-2 bg-[var(--sec)] rounded-full opacity-60 animate-pulse"></div>
+  <div class="absolute top-40 right-20 w-1 h-1 bg-[var(--sec)] rounded-full opacity-40 animate-pulse delay-1000"></div>
+  <div class="absolute bottom-32 left-1/4 w-1.5 h-1.5 bg-[var(--sec)] rounded-full opacity-50 animate-pulse delay-2000"></div>
+  
+  <div class="max-w-7xl mx-auto px-6 relative z-10">
+    <!-- Header da seção -->
+    <div class="text-center mb-16">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--white-icon-tr)] border border-[var(--white-icon-tr)] mb-6">
+        <svg class="w-5 h-5 text-[var(--sec)]" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+        </svg>
+        <span class="text-sm font-medium text-[var(--white-icon)]">Depoimentos</span>
+      </div>
+      
+      <h2 class="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-[var(--white)] via-[var(--white-icon)] to-[var(--white)] bg-clip-text text-transparent">
+        O que meus clientes dizem
+      </h2>
+      <p class="text-lg text-[var(--white-icon)] max-w-2xl mx-auto">
+        Cada projeto é uma oportunidade de criar algo único. Veja o que meus clientes têm a dizer sobre nossa colaboração.
+      </p>
+    </div>
+
+    <!-- Grid de depoimentos -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+      <!-- Depoimento 1 -->
+      <div class="group relative">
+        <div class="absolute inset-0 bg-gradient-to-br from-[var(--sec)]/20 to-transparent rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+        <div class="relative bg-[var(--component-bg)]/80 backdrop-blur-sm border border-[var(--white-icon-tr)] rounded-2xl p-8 hover:border-[var(--sec)]/50 transition-all duration-300 hover:transform hover:scale-[1.02]">
+          <!-- Estrelas -->
+          <div class="flex items-center gap-1 mb-4">
+            {Array.from({length: 4}).map((_, i) => (
+              <svg key={i} class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+              </svg>
+            ))}
+            <svg class="w-5 h-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+            </svg>
+          </div>
+          
+          <blockquote class="text-[var(--white)] text-lg leading-relaxed mb-6">
+            "Profissional muito prestativo e competente."
+          </blockquote>
+          
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 bg-gradient-to-br from-[var(--sec)] to-purple-600 rounded-full flex items-center justify-center">
+              <span class="text-white font-bold text-lg">S</span>
+            </div>
+            <div>
+              <p class="font-semibold text-[var(--white)]">Sistema de gestão de inscrições</p>
+              <p class="text-sm text-[var(--white-icon)]">Projeto Web</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Depoimento 2 -->
+      <div class="group relative">
+        <div class="absolute inset-0 bg-gradient-to-br from-[var(--sec)]/20 to-transparent rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+        <div class="relative bg-[var(--component-bg)]/80 backdrop-blur-sm border border-[var(--white-icon-tr)] rounded-2xl p-8 hover:border-[var(--sec)]/50 transition-all duration-300 hover:transform hover:scale-[1.02]">
+          <!-- Estrelas -->
+          <div class="flex items-center gap-1 mb-4">
+            {Array.from({length: 5}).map((_, i) => (
+              <svg key={i} class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+              </svg>
+            ))}
+          </div>
+          
+          <blockquote class="text-[var(--white)] text-lg leading-relaxed mb-6">
+            "Super prestativo"
+          </blockquote>
+          
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-full flex items-center justify-center">
+              <span class="text-white font-bold text-lg">D</span>
+            </div>
+            <div>
+              <p class="font-semibold text-[var(--white)]">Desenvolvimento de site e app mobile</p>
+              <p class="text-sm text-[var(--white-icon)]">Projeto Full-Stack</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Depoimento 3 -->
+      <div class="group relative">
+        <div class="absolute inset-0 bg-gradient-to-br from-[var(--sec)]/20 to-transparent rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+        <div class="relative bg-[var(--component-bg)]/80 backdrop-blur-sm border border-[var(--white-icon-tr)] rounded-2xl p-8 hover:border-[var(--sec)]/50 transition-all duration-300 hover:transform hover:scale-[1.02]">
+          <!-- Estrelas -->
+          <div class="flex items-center gap-1 mb-4">
+            {Array.from({length: 5}).map((_, i) => (
+              <svg key={i} class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+              </svg>
+            ))}
+          </div>
+          
+          <blockquote class="text-[var(--white)] text-lg leading-relaxed mb-6">
+            "Recomendo. Prestativo e tudo de acordo com o combinado"
+          </blockquote>
+          
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-full flex items-center justify-center">
+              <span class="text-white font-bold text-lg">W</span>
+            </div>
+            <div>
+              <p class="font-semibold text-[var(--white)]">Aplicativo com WebSocket</p>
+              <p class="text-sm text-[var(--white-icon)]">Projeto Mobile</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Depoimento 4 - Destaque -->
+      <div class="group relative md:col-span-2 lg:col-span-1">
+        <div class="absolute inset-0 bg-gradient-to-br from-[var(--sec)]/30 to-transparent rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+        <div class="relative bg-gradient-to-br from-[var(--component-bg)]/90 to-[var(--component-bg)]/70 backdrop-blur-sm border-2 border-[var(--sec)]/30 rounded-2xl p-8 hover:border-[var(--sec)]/60 transition-all duration-300 hover:transform hover:scale-[1.02]">
+          <!-- Badge de destaque -->
+          <div class="absolute -top-3 left-6">
+            <div class="bg-gradient-to-r from-[var(--sec)] to-purple-600 text-white px-4 py-1 rounded-full text-sm font-medium">
+              ⭐ Destaque
+            </div>
+          </div>
+          
+          <!-- Estrelas -->
+          <div class="flex items-center gap-1 mb-4 mt-4">
+            {Array.from({length: 5}).map((_, i) => (
+              <svg key={i} class="w-6 h-6 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+              </svg>
+            ))}
+          </div>
+          
+          <blockquote class="text-[var(--white)] text-xl leading-relaxed mb-6">
+            "Excelente profissional!!! Conhecimento e domínio incrível. Já trabalhei com diversos profissionais, mas o programador João se destaca. Pontual, dedicado, compreende o projeto, paciente e executa com agilidade e profissionalismo. Sem sombra de dúvida ganhou um cliente, espero seguir sempre com a parceria, não trocaria este profissional por nenhum da plataforma 99freelas."
+          </blockquote>
+          
+          <div class="flex items-center gap-4">
+            <div class="w-16 h-16 bg-gradient-to-br from-[var(--sec)] to-purple-600 rounded-full flex items-center justify-center">
+              <span class="text-white font-bold text-xl">I</span>
+            </div>
+            <div>
+              <p class="font-semibold text-[var(--white)] text-lg">Portal de anúncios imobiliários</p>
+              <p class="text-sm text-[var(--white-icon)]">Projeto Web Completo</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Estatísticas dos depoimentos -->
+    <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="text-center">
+        <div class="text-4xl font-bold text-[var(--sec)] mb-2">4.8</div>
+        <div class="text-[var(--white-icon)]">Avaliação Média</div>
+      </div>
+      <div class="text-center">
+        <div class="text-4xl font-bold text-[var(--sec)] mb-2">100%</div>
+        <div class="text-[var(--white-icon)]">Clientes Satisfeitos</div>
+      </div>
+      <div class="text-center">
+        <div class="text-4xl font-bold text-[var(--sec)] mb-2">4+</div>
+        <div class="text-[var(--white-icon)]">Projetos Concluídos</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  #testimonials {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+
+  #testimonials.animate-fade-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Animação das estrelas */
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+  }
+
+  .animate-pulse {
+    animation: twinkle 2s ease-in-out infinite;
+  }
+
+  /* Efeito de hover nos cards */
+  .group:hover .absolute {
+    transform: scale(1.05);
+  }
+</style>
+
+<script>
+  const testimonialsSection = document.querySelector('#testimonials');
+
+  if (testimonialsSection) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-fade-in');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    observer.observe(testimonialsSection);
+  }
+</script>

@@ -12,13 +12,23 @@ const navItems: NavItem[] = [
     icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M21 20C21 20.5523 20.5523 21 20 21H4C3.44772 21 3 20.5523 3 20V9.48907C3 9.18048 3.14247 8.88917 3.38606 8.69972L11.3861 2.47749C11.7472 2.19663 12.2528 2.19663 12.6139 2.47749L20.6139 8.69972C20.8575 8.88917 21 9.18048 21 9.48907V20ZM19 19V9.97815L12 4.53371L5 9.97815V19H19Z"></path></svg>`,
   },
   {
+    label: "Skills",
+    href: "#skills",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12 2L13.09 8.26L22 9L13.09 9.74L12 16L10.91 9.74L2 9L10.91 8.26L12 2Z"></path></svg>`,
+  },
+  {
     label: "Projetos",
-    href: "#Projetos",
+    href: "#projects",
     icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M4 5V19H20V7H11.5858L9.58579 5H4ZM12.4142 5H21C21.5523 5 22 5.44772 22 6V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V4C2 3.44772 2.44772 3 3 3H10.4142L12.4142 5Z"></path></svg>`,
   },
   {
+    label: "Depoimentos",
+    href: "#testimonials",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>`,
+  },
+  {
     label: "Contato",
-    href: "#Contato",
+    href: "#contact",
     icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M21.7267 2.95694L16.2734 22.0432C16.1225 22.5716 15.7979 22.5956 15.5563 22.1126L11 13L1.9229 9.36919C1.41322 9.16532 1.41953 8.86022 1.95695 8.68108L21.0432 2.31901C21.5716 2.14285 21.8747 2.43866 21.7267 2.95694ZM19.0353 5.09647L6.81221 9.17085L12.4488 11.4255L15.4895 17.5068L19.0353 5.09647Z"></path></svg>`,
   },
 ];
@@ -27,25 +37,35 @@ const navItems: NavItem[] = [
 <div class="flex justify-center w-full">
   <nav
     id="main-nav"
-    class="fixed left-1/2 -translate-x-1/2 z-[100] bg-[var(--background)] border border-1 border-transparent backdrop-blur-xl transition-all duration-500 ease-in-out md:top-6 md:bottom-auto bottom-0 w-[80%]"
+    class="fixed left-1/2 -translate-x-1/2 z-[100] bg-[var(--background)]/80 border border-[var(--white-icon-tr)] backdrop-blur-xl transition-all duration-500 ease-in-out md:top-6 md:bottom-auto bottom-0 w-[90%] md:w-[80%]"
   >
-    <div class="container mx-auto flex justify-center items-center p-3">
+    <div class="container mx-auto flex justify-center items-center p-2 md:p-4">
       <ul
-        class="flex w-full justify-between md:space-x-6 md:justify-center md:gap-12 gap-6"
+        class="flex w-full justify-between md:space-x-2 md:justify-center md:gap-4 gap-2"
       >
         {
           navItems.map((item) => (
             <li class="flex-1 md:flex-none">
               <a
                 href={item.href}
-                class="flex flex-col items-center gap-1 text-[var(--white-icon)] transition-colors text-xs md:text-base relative group"
+                class="group relative flex flex-col items-center gap-1 text-[var(--white-icon)] hover:text-[var(--sec)] transition-all duration-300 text-xs md:text-sm font-medium px-3 py-2 md:px-4 md:py-3 rounded-xl hover:bg-[var(--sec)]/10"
               >
-                <div class="absolute -left-6 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full transition-all duration-300 scale-0 opacity-0 bg-[#A9FF5B] nav-indicator hidden md:block" />
-                <span class="md:hidden flex items-center justify-center w-6 h-6">
+                <!-- Indicador ativo para desktop -->
+                <div class="absolute -left-2 top-1/2 -translate-y-1/2 w-1 h-1 rounded-full transition-all duration-300 scale-0 opacity-0 bg-[var(--sec)] nav-indicator hidden md:block" />
+                
+                <!-- Ícone para mobile -->
+                <span class="md:hidden flex items-center justify-center w-5 h-5 transition-transform duration-300 group-hover:scale-110">
                   <fragment set:html={item.icon} />
                 </span>
-                <span class="hidden md:inline-block">{item.label}</span>
-                <span class="md:hidden">{item.label}</span>
+                
+                <!-- Texto para desktop -->
+                <span class="hidden md:inline-block transition-all duration-300 group-hover:translate-y-[-1px]">{item.label}</span>
+                
+                <!-- Texto para mobile -->
+                <span class="md:hidden text-[10px] leading-tight">{item.label}</span>
+                
+                <!-- Efeito de hover -->
+                <div class="absolute inset-0 rounded-xl bg-gradient-to-r from-[var(--sec)]/0 to-[var(--sec)]/0 group-hover:from-[var(--sec)]/5 group-hover:to-[var(--sec)]/5 transition-all duration-300"></div>
               </a>
             </li>
           ))
@@ -57,17 +77,19 @@ const navItems: NavItem[] = [
 <style>
   nav {
     transform: translateX(-50%);
-    background-color: var(--background);
+    background-color: var(--background)/80;
     transition:
       background-color 0.3s ease,
       border-radius 0.3s ease,
-      border-color 0.3s ease;
+      border-color 0.3s ease,
+      box-shadow 0.3s ease;
   }
 
   nav.scrolling {
-    background-color: var(--component-bg);
-    border-color: #ffffff10;
+    background-color: var(--component-bg)/90;
+    border-color: var(--sec)/30;
     border-radius: 9999px;
+    box-shadow: 0 8px 32px rgba(164, 118, 255, 0.1);
   }
 
   nav a.active .nav-indicator {
@@ -76,14 +98,16 @@ const navItems: NavItem[] = [
   }
 
   nav a.active {
-    color: white !important;
+    color: var(--sec) !important;
+    background-color: var(--sec)/10;
   }
 
   @media (max-width: 767px) {
     nav a.active {
       color: var(--sec) !important;
-      transform: scale(1.1);
+      transform: scale(1.05);
       transition: all 0.3s ease;
+      background-color: var(--sec)/15;
     }
   }
 
@@ -94,15 +118,16 @@ const navItems: NavItem[] = [
       bottom: 0;
       left: 50%;
       position: fixed;
-      border-radius: 1rem 1rem 0 0;
-      border-color: #ffffff10;
+      border-radius: 1.5rem 1.5rem 0 0;
+      border-color: var(--white-icon-tr);
       z-index: 1000;
-      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.3);
     }
 
     nav.scrolling {
-      border-radius: 1rem 1rem 0 0;
-      background-color: var(--component-bg);
+      border-radius: 1.5rem 1.5rem 0 0;
+      background-color: var(--component-bg)/90;
+      box-shadow: 0 -8px 32px rgba(164, 118, 255, 0.1);
     }
 
     body {
